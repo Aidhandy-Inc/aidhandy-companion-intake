@@ -112,7 +112,7 @@
 
     /* LEFT — pitch */
     .hero-left {
-  background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-radius: 20px; padding: 3rem; box-shadow: 0 8px 40px rgba(10,77,104,0.15); border: 1px solid rgba(255,255,255,0.8); height: 100%; justify-content: space-between; display: flex; flex-direction: column; gap: 28px; }
+  background: linear-gradient(145deg, #0A2E42 0%, #0A4D68 60%, #0C6B8C 100%); backdrop-filter: blur(12px); border-radius: 20px; padding: 3rem; box-shadow: 0 20px 60px rgba(10,45,66,0.5); border: 1px solid rgba(255,255,255,0.1); height: 100%; justify-content: space-between; display: flex; flex-direction: column; gap: 28px; }
 
     .pill {
       display: inline-flex; align-items: stretch; gap: 8px;
@@ -125,6 +125,7 @@
       box-shadow: 0 3px 12px rgba(212,175,55,.18);
     }
     .pill::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--gold); animation: pulse 2.5s ease-in-out infinite; }
+    @keyframes glowBorder { 0%,100%{box-shadow: 0 20px 60px rgba(10,77,104,0.3), 0 0 30px rgba(212,175,55,0.3)} 50%{box-shadow: 0 20px 60px rgba(10,77,104,0.5), 0 0 50px rgba(27,154,170,0.4)} }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)} }
 
     .hero-h1 {
@@ -183,7 +184,7 @@
       background: var(--white);
       border-radius: var(--r-lg);
       border: 1px solid var(--border);
-      box-shadow: var(--sh-lg);
+      box-shadow: var(--sh-lg); outline: 2px solid transparent; animation: glowBorder 3s ease-in-out infinite;
       overflow: hidden;
       position: relative;
     }
@@ -322,7 +323,7 @@
       .tgrid { grid-template-columns: 1fr; }
       .footer-links { flex-direction: column; gap: 28px; }
       .hero-left {
-  background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-radius: 20px; padding: 3rem; box-shadow: 0 8px 40px rgba(10,77,104,0.15); border: 1px solid rgba(255,255,255,0.8); height: 100%; justify-content: space-between; order: 2; }
+  background: linear-gradient(145deg, #0A2E42 0%, #0A4D68 60%, #0C6B8C 100%); backdrop-filter: blur(12px); border-radius: 20px; padding: 3rem; box-shadow: 0 20px 60px rgba(10,45,66,0.5); border: 1px solid rgba(255,255,255,0.1); height: 100%; justify-content: space-between; order: 2; }
       .hero-right { order: 1; }
       .stats-row { grid-template-columns: repeat(3,1fr); }
       .nav-links .hide-mobile { display: none; }
@@ -611,6 +612,10 @@
 </script>
 </body>
 </html>
+
+
+
+
 
 
 
