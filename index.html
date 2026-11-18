@@ -110,7 +110,11 @@
     }
 
     /* LEFT — pitch */
-    .hero-left { display: flex; flex-direction: column; gap: 28px; }
+    .hero-left {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 2.5rem; display: flex; flex-direction: column; gap: 28px; }
 
     .pill {
       display: inline-flex; align-items: center; gap: 8px;
@@ -319,7 +323,11 @@
       .cards { grid-template-columns: 1fr; }
       .tgrid { grid-template-columns: 1fr; }
       .footer-links { flex-direction: column; gap: 28px; }
-      .hero-left { order: 2; }
+      .hero-left {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 2.5rem; order: 2; }
       .hero-right { order: 1; }
       .stats-row { grid-template-columns: repeat(3,1fr); }
       .nav-links .hide-mobile { display: none; }
@@ -608,6 +616,7 @@
 </script>
 </body>
 </html>
+
 
 
 
