@@ -30,12 +30,16 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700,800&display=swap" rel="stylesheet">
 
-  <!-- Meta Pixel -->
+  <!-- Meta Pixel: loads only after the visitor accepts cookies -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','1195389679143314');fbq('track','PageView');
+    function ahLoadPixel(){
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1195389679143314');fbq('track','PageView');
+    }
+    function ahConsent(){ try { return localStorage.getItem('ah_cookie'); } catch(e) { return null; } }
+    if (ahConsent() === '1') ahLoadPixel();
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1195389679143314&ev=PageView&noscript=1"/></noscript>
 
   <style>
     :root {
@@ -607,10 +611,10 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  if (localStorage.getItem('ah_cookie') === null)
+  if (ahConsent() === null)
     document.getElementById('cookie').style.display = 'block';
-  function okCookie(){ localStorage.setItem('ah_cookie','1'); document.getElementById('cookie').style.display='none'; }
-  function noCookie(){ localStorage.setItem('ah_cookie','0'); document.getElementById('cookie').style.display='none'; }
+  function okCookie(){ try { localStorage.setItem('ah_cookie','1'); } catch(e) {} document.getElementById('cookie').style.display='none'; ahLoadPixel(); }
+  function noCookie(){ try { localStorage.setItem('ah_cookie','0'); } catch(e) {} document.getElementById('cookie').style.display='none'; }
 
   const hdr = document.getElementById ? null : null;
 
@@ -631,14 +635,13 @@
 <script>
   // Meta Pixel: count Apply clicks as Lead, and a submitted embedded form as CompleteRegistration
   (function(){
-    if (!window.fbq) return;
     document.querySelectorAll('a[href*="docs.google.com/forms"]').forEach(function(a){
-      a.addEventListener('click', function(){ fbq('track','Lead',{content_name:'Apply button'}); });
+      a.addEventListener('click', function(){ if (window.fbq) fbq('track','Lead',{content_name:'Apply button'}); });
     });
     var f = document.querySelector('.form-card iframe'), loads = 0, sent = false;
     if (f) f.addEventListener('load', function(){
       loads++;
-      if (loads > 1 && !sent) { sent = true; fbq('track','CompleteRegistration',{content_name:'Companion application'}); }
+      if (loads > 1 && !sent && window.fbq) { sent = true; fbq('track','CompleteRegistration',{content_name:'Companion application'}); }
     });
   })();
 </script>
