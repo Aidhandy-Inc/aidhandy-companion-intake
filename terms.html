@@ -17,8 +17,47 @@
     ul { margin-left: 18px; }
     .block { border:1px solid var(--ah-border); border-radius: 14px; padding: 14px; background: #fff; }
   </style>
+
+<!-- AidHandy shared header/footer -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<style>
+  body { margin: 0; }
+  .ah-hdr { background: rgba(255,255,255,.95); border-bottom: 1px solid #D8E6EF; position: sticky; top: 0; z-index: 200; backdrop-filter: blur(16px); }
+  .ah-hdr-in { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .ah-brand { display: flex; align-items: center; gap: 10px; text-decoration: none !important; }
+  .ah-brand img { width: 38px; height: 38px; border-radius: 9px; }
+  .ah-brand span { font-family: Georgia, 'Times New Roman', serif; font-weight: 800; font-size: 34px; letter-spacing: -.03em; color: #2d2d2d; }
+  .ah-brand span b { color: #5ba8d4; font-weight: 800; }
+  .ah-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .ah-nav a { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: #475569; text-decoration: none !important; font-weight: 500; font-size: 14px; padding: 8px 14px; border-radius: 10px; }
+  .ah-nav a:hover { background: #EBF4F9; color: #0A4D68; }
+  .ah-nav a.ah-cta { background: linear-gradient(135deg,#D4AF37 0%,#F0C040 50%,#D4AF37 100%); color: #0A1929; font-weight: 700; padding: 10px 20px; box-shadow: 0 4px 16px rgba(212,175,55,.45); margin-left: 6px; }
+  .ah-nav a.ah-cta:hover { background: linear-gradient(135deg,#E8C547,#F5D060); color: #0A1929; }
+  .ah-ftr { background: #0A1929; color: rgba(255,255,255,.6); margin-top: 56px; padding: 40px 24px 28px; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 14px; }
+  .ah-ftr-in { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .ah-ftr .ah-fb { font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .ah-ftr a { color: rgba(255,255,255,.7) !important; text-decoration: none !important; margin-right: 18px; line-height: 2.2; }
+  .ah-ftr a:hover { color: #E8C547 !important; }
+  /* bring page headings into the brand palette */
+  main h1, .wrap > h1, body > h1 { color: #0A4D68 !important; border-bottom-color: #D4AF37 !important; }
+  @media (max-width: 760px) {
+    .ah-hdr-in { height: auto; padding: 10px 16px; flex-direction: column; gap: 6px; }
+    .ah-brand span { font-size: 28px; }
+    .ah-nav { justify-content: center; }
+    .ah-nav a { font-size: 13px; padding: 6px 10px; }
+  }
+</style>
 </head>
 <body>
+<div class="ah-hdr"><div class="ah-hdr-in">
+  <a class="ah-brand" href="/"><img src="/apple-touch-icon.png" alt="" /><span>Aid<b>H</b>andy</span></a>
+  <nav class="ah-nav">
+    <a href="/">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a>
+    <a class="ah-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSerohAoLwb57SUB79ycG0EbS4UUCNJir9_AtAXQHS7CXsSkog/viewform" target="_blank" rel="noopener noreferrer">Apply as Companion</a>
+  </nav>
+</div></div>
+
   <main class="wrap">
     <h1>Terms of Service</h1>
     <p><strong>Effective Date:</strong> October 2025 · <strong>Last Updated:</strong> October 2025</p>
@@ -117,6 +156,12 @@
     <p class="muted">© <span id="y"></span> AidHandy Inc. All rights reserved.</p>
   </main>
   <script> document.getElementById('y').textContent = new Date().getFullYear(); </script>
+
+<footer class="ah-ftr"><div class="ah-ftr-in">
+  <div><div class="ah-fb">AidHandy</div>&copy; <span class="ah-yr">2026</span> AidHandy Inc. All rights reserved.</div>
+  <div><a href="/about.html">About Us</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a><a href="/cookie-policy.html">Cookie Policy</a><a href="/messaging-terms.html">Messaging Terms</a></div>
+</div></footer>
+<script>document.querySelectorAll('.ah-yr').forEach(e=>e.textContent=new Date().getFullYear())</script>
 </body>
 </html>
 
