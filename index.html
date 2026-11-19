@@ -25,7 +25,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zodiak:wght@400;700;800&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700,800&display=swap" rel="stylesheet">
 
   <!-- Meta Pixel -->
   <script>
@@ -624,6 +627,20 @@
     el.style.transition = 'opacity .7s cubic-bezier(.34,1.56,.64,1), transform .7s cubic-bezier(.34,1.56,.64,1)';
     obs.observe(el);
   });
+</script>
+<script>
+  // Meta Pixel: count Apply clicks as Lead, and a submitted embedded form as CompleteRegistration
+  (function(){
+    if (!window.fbq) return;
+    document.querySelectorAll('a[href*="docs.google.com/forms"]').forEach(function(a){
+      a.addEventListener('click', function(){ fbq('track','Lead',{content_name:'Apply button'}); });
+    });
+    var f = document.querySelector('.form-card iframe'), loads = 0, sent = false;
+    if (f) f.addEventListener('load', function(){
+      loads++;
+      if (loads > 1 && !sent) { sent = true; fbq('track','CompleteRegistration',{content_name:'Companion application'}); }
+    });
+  })();
 </script>
 </body>
 </html>
