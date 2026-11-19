@@ -7,6 +7,9 @@
   <meta name="description" content="AidHandy connects travelers with vetted companions for airport and in-flight support. Apply to join our companion network." />
   <meta name="theme-color" content="#1D9FD8" />
   <link rel="canonical" href="https://www.aidhandy.com/" />
+  <link rel="alternate" hreflang="en" href="https://www.aidhandy.com/" />
+  <link rel="alternate" hreflang="es" href="https://www.aidhandy.com/es.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.aidhandy.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AidHandy" />
   <meta property="og:url" content="https://www.aidhandy.com/" />
@@ -295,6 +298,17 @@
     .tname { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
     .trole { font-size: 12px; color: var(--muted); }
 
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--sh-sm); overflow: hidden; }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 20px 56px 20px 24px; font-family: 'Zodiak',serif; font-size: 19px; font-weight: 700; color: var(--text); position: relative; letter-spacing: -.01em; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0A1929; font-family: system-ui, sans-serif; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; transition: transform .25s; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item[open] { border-color: rgba(212,175,55,.5); box-shadow: var(--sh-md); }
+    .faq-item p { padding: 0 24px 22px; font-size: 15.5px; color: var(--text-lt); line-height: 1.75; }
+    .lang-link { font-weight: 600 !important; color: var(--blue) !important; }
+
     /* ─── CTA BAND ─── */
     .cta-band {
       background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
@@ -394,7 +408,9 @@
     <nav class="nav-links">
       <a href="#how-it-works" class="hide-mobile">How it works</a>
       <a href="#why-join" class="hide-mobile">Why join</a>
+      <a href="#faq" class="hide-mobile">FAQ</a>
       <a href="/contact.html" class="hide-mobile">Contact</a>
+      <a href="/es.html" class="hide-mobile lang-link" hreflang="es" lang="es">Español</a>
       <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSerohAoLwb57SUB79ycG0EbS4UUCNJir9_AtAXQHS7CXsSkog/viewform" target="_blank" rel="noopener noreferrer">Apply as Companion</a>
     </nav>
   </div>
@@ -452,8 +468,8 @@
             <div class="stat-l">Hub Airports</div>
           </div>
           <div class="stat">
-            <div class="stat-n">Early</div>
-            <div class="stat-l">Access Open</div>
+            <div class="stat-n">2027</div>
+            <div class="stat-l">Launching Spring</div>
           </div>
           <div class="stat">
             <div class="stat-n">Free</div>
@@ -555,6 +571,26 @@
           <h3>Make a real difference</h3>
           <p>Help first-time flyers, older travelers and families feel calm and confident, and get paid for every booking.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section id="faq" class="section">
+    <div class="wrap">
+      <div class="sec-header">
+        <div class="sec-label">FAQ</div>
+        <h2 class="sec-title">Questions from companions</h2>
+        <p class="sec-desc">Everything you need to know before you apply.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>How do companions get paid?</summary><p>Companions are paid for every booking they complete. Exact rates and payment details are shared during onboarding.</p></details>
+        <details class="faq-item"><summary>What are the requirements?</summary><p>You must be 18 or older, pass a background check, and have a smartphone. No travel industry experience is required.</p></details>
+        <details class="faq-item"><summary>When does AidHandy launch?</summary><p>We plan to launch in Spring 2027 at Atlanta (ATL), New York (JFK) and Los Angeles (LAX). Companions who apply now are reviewed and onboarded first.</p></details>
+        <details class="faq-item"><summary>How much time do I need to commit?</summary><p>There are no fixed shifts. You choose the trips that fit your schedule, so you can work around your job, school or family.</p></details>
+        <details class="faq-item"><summary>Do I need medical training?</summary><p>No. AidHandy companions provide non-medical support only: check-in help, gate navigation, boarding assistance and reassurance during the trip.</p></details>
+        <details class="faq-item"><summary>Does it cost anything to apply?</summary><p>No. Applying is free and there is no commitment. It takes about 2 minutes.</p></details>
+        <details class="faq-item"><summary>What happens after I apply?</summary><p>We review your application, run a background check and walk you through onboarding. We'll email you with launch updates and next steps.</p></details>
       </div>
     </div>
   </section>
